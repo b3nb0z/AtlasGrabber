@@ -10,7 +10,7 @@ A software to enable fast and large scale analysis of the the Human Protein Atla
 5. Licence 
 
 ## Installation
-
+No installation of the executable is required. Some additional packages might be required 
 ## Intended use
 
 
