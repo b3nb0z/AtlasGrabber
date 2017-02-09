@@ -3,6 +3,11 @@
 A software to enable fast and large scale analysis of the the Human Protein Atlas online database. 
 
 ## Table of Contents
+1. Installation
+2. Intended use 
+3. Usage
+4. Credits
+5. Licence 
 
 ## Installation
 
@@ -13,9 +18,8 @@ To start using the AtlasGrabber, an initial text file (.txt) is needed that cont
 The software executable can be downloaded directly (github link) or compiled from the source code. No additional setup or installations are required and it should run without issues in windows 7, 8 and 10 . We recommend using a high definition, large screen monitor (above 20 inches) for the best experience. 
 
 ![shot1](https://cloud.githubusercontent.com/assets/17572110/22786755/23ccbf8a-eeda-11e6-9034-58a92b146569.jpg)
-Format: ![Alt Text](url)
+Figure 1.  Gene selection window of the Atlas Grabber
 
-Figure 2. Gene selection window of the Atlas Grabber
 The program initially opens to the "Gene list" window. Here one can load the gene list from the text file (Fig1 A); specify to look at all antibodies, only commercial ones, in-house ones, or both (B) and specify to look at all the image samples, just the first one, or a random one. One can also  chose to filter out additional images from the same patient for an antibody (C) (typically there will be 2 images per patient). 
 Here it also also possible to name different lists that that selected genes will be added to. Each list already has an assigned key: from 0 to 9. While in the Analysis window, looking though the atlas the current gene Id can copied over to any of the up to 10 lists. The lists will be created in the same folder where the program is located when the first gene ID is added to it. If the file already exists, from a previous analysis for instance, the new gene names will be added to the old one. 
 Next, at the top of the page you can select which tissues you would like to analyze. You can select any normal or cancerous tissue from the dropdown menu in any of the four windows. When a new window is assigned a tissue, a new window will be added. 
