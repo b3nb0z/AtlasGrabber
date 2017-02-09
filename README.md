@@ -1,17 +1,15 @@
-[Project name]
 # AtlasGrabber
 
-[Description]
 A software to enable fast and large scale analysis of the the Human Protein Atlas online database. 
 
 ## Table of Contents
 
 ## Installation
 
+## Usage 
+
+
 ![shot1](https://cloud.githubusercontent.com/assets/17572110/22786755/23ccbf8a-eeda-11e6-9034-58a92b146569.jpg)
-
-
-![GitHub Logo](/images/logo.png)
 Format: ![Alt Text](url)
 
 
