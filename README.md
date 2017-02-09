@@ -11,6 +11,8 @@ A software to enable fast and large scale analysis of the the Human Protein Atla
 
 ## Installation
 
+## Intended use
+
 
 ## Usage 
 
