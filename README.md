@@ -42,7 +42,8 @@ Figure 2.  Analysis window of the AtlasGrabber
 
 The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (=sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). 
 
-Figure 3. 
+![hpa_organization 2](https://cloud.githubusercontent.com/assets/17572110/22879557/e1b25cce-f1de-11e6-8e52-b0ca0c7f641f.png)
+Figure 3. The hiarchial organization of the Human Protein Atlas Database
 
 There areFor the analysis itself, there are 3 key combinations to be used to look through the pictures. 
 1. Genes
