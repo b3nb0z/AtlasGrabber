@@ -35,7 +35,28 @@ The program initially opens to the Setup window. In the setup window the followi
 Figure 1.  Setup window of the Atlas Grabber
 
 ### Analysis window
-At the top of the page select which tissues to look at. Any normal or cancerous tissue can be selected from the dropdown menu in any of the four windows. When a new window is assigned a tissue, the new window will be added. 
+At the top of the page select which tissues to look at. Any normal or cancerous tissue can be selected from the dropdown menu in any of the four windows. When a new window is assigned a tissue, the new window will be displayed. Up to four windows can be looked at the same time (Figure 2. A). 
+
+The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (=sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). 
+
+Figure 3. 
+
+There areFor the analysis itself, there are 3 key combinations to be used to look through the pictures. 
+1. Genes
+2. Antibodies for a gene
+3. Images for a particular gene
+
+Use the following keys for the analysis:
+- Flip through images for particular antibody
+  **Right arrow**: next
+  **Left arrow**: previous
+  
+- Flip through antibodies for a particular protein
+  **Down arrow**: next
+  **Up arrow**: previous
+  
+The current antibody and the   
+  
 
 You are now ready to start the analysis. To start looking at the images simple select Images tab (Figure 1 X). Use you mouse pointer to look around a tissue, use the scrolling wheel up and down to move through the images. The keyboard keys are used to move to the next antibody for the gene ID (A and D) and to the next of previous gene ID (N and P). Pressing any of the keys 0-9 will assign the gene ID to that particular list. Going back to the Gene list window, you can see which gene ID you are looking on the left panel and what genes IDs you have assigned to the different lists. 
 
