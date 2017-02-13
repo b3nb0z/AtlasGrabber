@@ -40,50 +40,40 @@ At the top of the page select which tissues to look at. Any normal or cancerous 
 ![shot2](https://cloud.githubusercontent.com/assets/17572110/22879335/d49d9d88-f1dd-11e6-8927-01204d0f748b.jpg)
 Figure 2.  Analysis window of the AtlasGrabber
 
-The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (=sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). 
+The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (= tissue sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). 
 
 ![hpa_organization 2](https://cloud.githubusercontent.com/assets/17572110/22879557/e1b25cce-f1de-11e6-8e52-b0ca0c7f641f.png)
 Figure 3. The hiarchial organization of the Human Protein Atlas Database
 
-There areFor the analysis itself, there are 3 key combinations to be used to look through the pictures. 
-1. Genes
-2. Antibodies for a gene
-3. Images for a particular gene
-
-Use the following keys for the analysis:
-- Flip through images for particular antibody
+Thus, o preform the analysis, use the following keys to
+1. Go back and forth the gene list - scroll up and down with mouse
+2. Go back and forth the antibodies for a particular gene
   **Right arrow**: next
   **Left arrow**: previous
-  
-- Flip through antibodies for a particular protein
+3. Go back and forth the images
   **Down arrow**: next
   **Up arrow**: previous
-  
-The current antibody and the   
-  
 
-You are now ready to start the analysis. To start looking at the images simple select Images tab (Figure 1 X). Use you mouse pointer to look around a tissue, use the scrolling wheel up and down to move through the images. The keyboard keys are used to move to the next antibody for the gene ID (A and D) and to the next of previous gene ID (N and P). Pressing any of the keys 0-9 will assign the gene ID to that particular list. Going back to the Gene list window, you can see which gene ID you are looking on the left panel and what genes IDs you have assigned to the different lists. 
+Note that in case of looking at multiple windows (and different tissues/tumors), the keys will be applied to all of them.  
+
+Pressing any of the numbers, 0-9, will assign the current gene ID to the corresponding list. 
+
+Going back to the Gene list window, you can see which gene ID you are looking on the left panel and what genes IDs you have assigned to the different lists. 
 
 If you are interested in the particular Gene you looking at, you also have the option to go to it's website location in the built-in browser by selecting the browser window. This can be useful if you wish to read a quick gene summary etc. 
-During the analysis, the progress bar will show how far along you have gotten. 
 
-Once finished, you can go back to the gene list window, save the gene lists and either save the rest of the gene list, in case you haven't yet finished it, or even save all of them. Clicking any of them will not overwrite the current file but create a new one. Next time you wish to continue the analysis, you can load the file containing the reaming genes.  
+There is a progress bar at the top of the window that shows how much of the imported genes have been looked at.  
+
+Once finished, back at the gene list window, it is possible to save the gene lists and either save the rest of the gene list, in case you haven't yet finished it, or even save all of them. Clicking any of them will not overwrite the current file but create a new one. 
+
+Next time you wish to continue the analysis, you can load the file containing the reaming genes.  
 If you are unsure at any time about how to use the software, the help button will bring up a document that contains a detailed tutorial on how to use it. 
 
-
-
-
-
-
-[how does the functionality compare and improve the functionality of similar existing software]
-Similar software has been designed previously, for example the HPASubC. It can also be used to analyze the protein atlas. It is a package of several python scripts: one to download images, one to view, one to score them and one to download the protein data. In addition, it also relies on a number of dependencies to run. 
-The HPASubC differs from the AtlasGrabber in several ways. Because AtlasGrabber is a windows executable, it will be easier and faster to run even for technically non-skilled users although it limits the use to the windows platform. In comparison, to run HPASubC, users must be able to install Python 2.x, install dependencies, and run python scripts form the terminal. It also requires users to download all the images one plans to look through to the hard drive, while the AtlasGrabber doesn’t. The AtlasGrabber will only display the images and not download them. The only thing it saves will be the text file lists. 
-
-Contributing: Larger projects often have sections on contributing to their project, in which contribution instructions are outlined. Sometimes, this is a separate file. If you have specific contribution preferences, explain them so that other developers know how to best contribute to your work. To learn more about how to help others contribute, check out the guide for (setting guidelines for repository contributors)[https://help.github.com/articles/setting-guidelines-for-repository-contributors/].
+Note! The AtlasGrabber will not save the images to the harddrive. It will simply save the text files. 
 
 ## Credits:
 Andrii Savchenko
 Benedek Bozoky
 
 ## License
-Gnu Public License v3
+Gnu Public License v3. For more infromation see the 
