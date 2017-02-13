@@ -32,10 +32,13 @@ The program initially opens to the Setup window. In the setup window the followi
 5. Name different lists that that selected genes will be added to. Each list already has an assigned key: from 0 to 9. While in the analysis window, pressing the assigned key will copy the ENSG ID to the list. The lists will be created in the same folder where the program is located when the first gene ID is added to it. If the file already exists, from a previous analysis for instance, the new gene names will be added to the old one. 
 
 ![shot1](https://cloud.githubusercontent.com/assets/17572110/22786755/23ccbf8a-eeda-11e6-9034-58a92b146569.jpg)
-Figure 1.  Setup window of the Atlas Grabber
+Figure 1.  Setup window of the AtlasGrabber
 
 ### Analysis window
 At the top of the page select which tissues to look at. Any normal or cancerous tissue can be selected from the dropdown menu in any of the four windows. When a new window is assigned a tissue, the new window will be displayed. Up to four windows can be looked at the same time (Figure 2. A). 
+
+![shot2](https://cloud.githubusercontent.com/assets/17572110/22879335/d49d9d88-f1dd-11e6-8927-01204d0f748b.jpg)
+Figure 2.  Analysis window of the AtlasGrabber
 
 The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (=sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). 
 
