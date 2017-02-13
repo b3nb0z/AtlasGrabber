@@ -40,7 +40,7 @@ At the top of the page select which tissues to look at. Any normal or cancerous 
 ![shot2](https://cloud.githubusercontent.com/assets/17572110/22879335/d49d9d88-f1dd-11e6-8927-01204d0f748b.jpg)
 Figure 2.  Analysis window of the AtlasGrabber
 
-The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (= tissue sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). 
+The Human Protein Atlas is organized in the following hierarchial structure (Figure 3): For each gene ID, there are several antibodies that target it, for each antibody there will be several images (= tissue sections) from different patients. Typically there will be 1-2 images from one patient (not shown in figure). Note that for each antibody there will be a varying number of antibodies (between 1-4) and images for each antibody. 
 
 ![hpa_organization 2](https://cloud.githubusercontent.com/assets/17572110/22879557/e1b25cce-f1de-11e6-8e52-b0ca0c7f641f.png)
 Figure 3. The hiarchial organization of the Human Protein Atlas Database
@@ -54,11 +54,9 @@ Thus, o preform the analysis, use the following keys to
   **Down arrow**: next
   **Up arrow**: previous
 
-Note that in case of looking at multiple windows (and different tissues/tumors), the keys will be applied to all of them.  
+In case of looking at multiple windows (and different tissues/tumors), the keys will be applied to all of them. Pressing any of the numbers, 0-9, will assign the current gene ID to the corresponding list. 
 
-Pressing any of the numbers, 0-9, will assign the current gene ID to the corresponding list. 
-
-Going back to the Gene list window, you can see which gene ID you are looking on the left panel and what genes IDs you have assigned to the different lists. 
+In the Gene list window, the current gene ID can be seen on the left, and the ones assigned to the lists on the right. 
 
 If you are interested in the particular Gene you looking at, you also have the option to go to it's website location in the built-in browser by selecting the browser window. This can be useful if you wish to read a quick gene summary etc. 
 
