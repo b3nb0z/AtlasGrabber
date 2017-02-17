@@ -21,9 +21,10 @@ An initial text file (.txt) is needed that contains the list of ENSG Id’s that
 ### Setup window
 The software executable can be downloaded directly (github link) or compiled from the source code. No additional setup or installations are required and it should run without issues in windows 7, 8 and 10. On the first run, some **packages** might be needed to be installed, but windows will automatically detect which ones. We recommend using a high definition, large screen monitor (above 20 inches) for the best experience. 
 
-The program initially opens to the Setup window. In the setup window the following setting can be done: 
+The program initially opens to the Setup window. In the setup window the following can be done: 
 
 1. Load a gene list (ENSG ID's) from a text file (Fig 1. A)
+  Note: this should contain the genes that you wish to analyize. 
 2. Specify to include only commercial antibodies, in-house ones, or  both (Fig 1. B) 
   Note: typically there will be a commercial and an in-house antibody for each protein
 3. Specify to inlcude all image samples, just the first one, or a random one (Fig 1. C)
@@ -45,12 +46,15 @@ The Human Protein Atlas is organized in the following hierarchial structure (Fig
 ![hpa_organization 2](https://cloud.githubusercontent.com/assets/17572110/22879557/e1b25cce-f1de-11e6-8e52-b0ca0c7f641f.png)
 Figure 3. The hiarchial organization of the Human Protein Atlas Database
 
-Thus, o preform the analysis, use the following keys to
+Thus, to preform the analysis, use the following keys to
+
 1. Go back and forth the gene list - scroll up and down with mouse
 2. Go back and forth the antibodies for a particular gene
+
   **Right arrow**: next
   **Left arrow**: previous
 3. Go back and forth the images
+
   **Down arrow**: next
   **Up arrow**: previous
 
@@ -58,19 +62,21 @@ In case of looking at multiple windows (and different tissues/tumors), the keys 
 
 In the Gene list window, the current gene ID can be seen on the left, and the ones assigned to the lists on the right. 
 
-If you are interested in the particular Gene you looking at, you also have the option to go to it's website location in the built-in browser by selecting the browser window. This can be useful if you wish to read a quick gene summary etc. 
+If you are interested in the particular gene you looking at, you also have the option to go to it's website location in the built-in browser by selecting the browser window. This can be useful if you wish to read a quick gene summary etc. 
 
 There is a progress bar at the top of the window that shows how much of the imported genes have been looked at.  
 
 Once finished, back at the gene list window, it is possible to save the gene lists and either save the rest of the gene list, in case you haven't yet finished it, or even save all of them. Clicking any of them will not overwrite the current file but create a new one. 
 
-Next time you wish to continue the analysis, you can load the file containing the reaming genes.  
+Next time you wish to continue the analysis, you can load the file containing the reaming genes.
+
 If you are unsure at any time about how to use the software, the help button will bring up a document that contains a detailed tutorial on how to use it. 
 
 Note! The AtlasGrabber will not save the images to the harddrive. It will simply save the text files. 
 
 ## Credits:
 Andrii Savchenko
+
 Benedek Bozoky
 
 ## License
