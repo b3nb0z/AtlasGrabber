@@ -1,6 +1,6 @@
 # AtlasGrabber
 
-A software to enable fast and large scale analysis of the the Human Protein Atlas online database. 
+A software to enable fast and large scale analysis of the the Human Protein Atlas (HPA) online database. Features includes sorting the genes into separate lists, side by side view of up to 4 images for easy comparison and a parser of the HPA XML datafile that you can use to extract all the genes/images for a particular tissue or cancer. 
 
 ## Table of Contents
 1. Installation
@@ -13,7 +13,8 @@ A software to enable fast and large scale analysis of the the Human Protein Atla
 No installation of the executable is required. Some additional **packages** could be required at first start. Windows should automatically identify these and promt their installation. 
 
 ## Intended use
-To preform a fast analysis of a gene list in the Human Protein Atlas online database.
+1. To preform a fast analysis of a gene list in the Human Protein Atlas online database.
+2. To extract a list of all the genes available in the HPA from their XML database file. 
 
 ## Usage 
 An initial text file (.txt) is needed that contains the list of ENSG Id’s that is to be analyzed in the Protein Atlas. Such lists can be generated from the downloadable files from the HPA website (http://www.proteinatlas.org/about/download) or by searching key words in the HPA search field and exporting the file. 
