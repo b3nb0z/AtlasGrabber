@@ -6,6 +6,7 @@ using System.Linq;
 using System.IO;
 using System.Windows.Forms;
 using System.Net;
+using System.Xml;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -33,7 +34,7 @@ namespace WindowsFormsApplication1
         bool rn = false;
         bool uploadInProcess = false;
         bool wheelProcessing = false;
-        const string programName = "Human Protein Atlas Grabber   ";
+        const string programName = "Atlas Grabber   ";
             
         string[] ensa = new string[54000];
         string[] gene = new string[54000];
@@ -156,6 +157,7 @@ namespace WindowsFormsApplication1
 
                 }
                 Application.DoEvents();
+                pictureBox1.Focus();
                 uploadInProcess = false;
             }
 
@@ -176,7 +178,7 @@ namespace WindowsFormsApplication1
                 System.Net.WebResponse _WebResponse = _HttpWebRequest.GetResponse();  
  
                 // Open data stream: . 
-                System.IO.Stream _WebStream = _WebResponse.GetResponseStream();  
+                System.IO.Stream _WebStream =  _WebResponse.GetResponseStream();  
 
                 // convert webstream to image . 
                 _tmpImage = Image.FromStream(_WebStream);  
@@ -201,43 +203,15 @@ namespace WindowsFormsApplication1
            
             if (lastclick.AddMilliseconds(300) < DateTime.Now)
             {
-                if (opened & !uploadInProcess)
+                if (opened) // & !uploadInProcess
                 {
-                    if ((e.KeyCode == Keys.N) || (e.KeyCode == Keys.Space))
+                    if ((e.KeyCode == Keys.S) || (e.KeyCode == Keys.Space)) //next gene
                     {
                         //label1.Text = "Loaded " + geneNumber.ToString() + " genes";
-
-                        if (genesProc < geneNumber)
-                        {
-                            genesProc += 1;
-                            download_page(ensa[genesProc]); 
-                            
-                          // // label3.Text = "Genes done:" + genesProc.ToString();
-                           // label3.Text = String.Format("Genes ({0}/{1})", genesProc+1, geneNumber);
-                            this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc+1, geneNumber);
-                           
-                            webBrowser1.Focus();
-                            progressBar1.Value = genesProc;
-                        }
-                        else
-                        {
-                            MessageBox.Show("You did it! The last gene was reached!", "AtlasGrabber", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                        }
-
-
+                        nextGene();
                     }
-                    if ((e.KeyCode == Keys.S))
-                    {
-                        this.Enabled = false;
-                        Application.DoEvents();
-                        this.Enabled = true;
-
-                       // label1.Text = "Saved";
-                        SaveGene();
-                    }
-
-                    if ((e.KeyCode == Keys.A))
+                  
+                    if ((e.KeyCode == Keys.A)) //next antibody
                     {
                         this.Enabled = false;
                         Application.DoEvents();
@@ -245,7 +219,8 @@ namespace WindowsFormsApplication1
                         nextAb(1);
                     }
 
-                    if ((e.KeyCode == Keys.Q))
+                    
+                    if ((e.KeyCode == Keys.Q)) //previous antiboy
                     {
                         this.Enabled = false;
                         Application.DoEvents();
@@ -253,29 +228,31 @@ namespace WindowsFormsApplication1
                         previousAb(1);
                     }
 
-                    if ((e.KeyCode == Keys.P))
+                    if ((e.KeyCode == Keys.D)) //next image, the same as wheel
                     {
+                        this.Enabled = false;
+                        Application.DoEvents();
+                        this.Enabled = true;
+                        nextImg(1);
+                    }
 
+
+                    if ((e.KeyCode == Keys.E)) //previous image, the same as wheel
+                    {
+                        this.Enabled = false;
+                        Application.DoEvents();
+                        this.Enabled = true;
+                        previousImg(1);
+                    }
+
+                    if ((e.KeyCode == Keys.W))
+                    {
                         this.Enabled = false;
                         Application.DoEvents();
                         this.Enabled = true;
                         if (opened)
                         {
-                            if (genesProc > 0)
-                            {
-                                genesProc -= 1;
-                                download_page(ensa[genesProc]);
-                              //  //label3.Text = "Genes done:" + genesProc.ToString();
-                              //  label3.Text = String.Format("Genes ({0}/{1})", genesProc + 1 , geneNumber);
-                                this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc + 1, geneNumber);
-                                progressBar1.Value = genesProc;
-                            }
-                            else
-                            {
-                                MessageBox.Show("First gene in the list is reached!", "AtlasGrabber", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                            }
-
+                            previousGene();
                         }
                     }
 
@@ -303,7 +280,6 @@ namespace WindowsFormsApplication1
                             }
                         }
                     }
-
 
                 }
                 else
@@ -394,19 +370,22 @@ namespace WindowsFormsApplication1
                 {
                     geneNumber -= 1;
                     download_page(ensa[0]); genesProc = 0;
-                    
-                  // // label1.Text = "Loaded " + geneNumber.ToString() + " genes"; Application.DoEvents();
-                  //  label3.Text = String.Format("Genes ({0}/{1})", genesProc + 1, geneNumber);
                     this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc + 1, geneNumber);
                     progressBar1.Value = 0;
                     progressBar1.Minimum = 0;
                     progressBar1.Maximum = geneNumber;
                     progressBar1.Step = 1;
 
+                    radioButton1.Enabled = true;
+                    radioButton3.Enabled = true;
+                    ClearGeneListBtn.Enabled = true;
+                    SaveRestBtn.Enabled = true;
+                    button2.Enabled = true;
+
                 }
             }
             genesProc = 0;
-            groupBox4.Text = String.Format("Genes to analyze ({0}/{1})", genesProc, geneNumber);
+            groupBox7.Text = String.Format("Genes to analyze ({0}/{1})", genesProc, geneNumber);
         }
 
         private void ClearGeneListBtn_Click(object sender, EventArgs e)
@@ -414,7 +393,19 @@ namespace WindowsFormsApplication1
             listView1.Items.Clear();
             geneNumber = 0; genesProc = 0;
             this.Text = programName;
-            groupBox4.Text = String.Format("Genes to analyze ({0}/{1})", genesProc, geneNumber);
+
+            progressBar1.Value = 0;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = geneNumber;
+            progressBar1.Step = 1;
+
+            radioButton1.Enabled = false;
+            radioButton3.Enabled = false;
+            ClearGeneListBtn.Enabled = false;
+            SaveRestBtn.Enabled = false;
+            button2.Enabled = false;
+            
+            groupBox7.Text = String.Format("Genes to analyze ({0}/{1})", genesProc, geneNumber);
         }
 
         private void download_page(string en)
@@ -424,29 +415,35 @@ namespace WindowsFormsApplication1
             textBox34.Text = en;
             current = en;
 
+            string tissueType = "";
+
             Application.DoEvents();
             Uri myuri1, myuri2, myuri3, myuri4;
             if (comboBox1.SelectedIndex != 0 & comboBox1.Enabled)
             {
-                myuri1 = new Uri("http://proteinatlas.org/" + en + @"/" + (string)comboBox1.SelectedItem);
+                if (comboBox1.SelectedIndex <= 20) tissueType = @"/pathology/"; else tissueType = @"/";
+                myuri1 = new Uri("http://proteinatlas.org/" + en + tissueType + @"tissue/" + (string)comboBox1.SelectedItem);
                 webBrowser1.Navigate(myuri1);
             }
 
             if (comboBox2.SelectedIndex != 0 & comboBox2.Enabled)
             {
-                myuri2 = new Uri("http://proteinatlas.org/" + en + @"/" + (string)comboBox2.SelectedItem);
+                if (comboBox2.SelectedIndex <= 20) tissueType = @"/pathology/"; else tissueType = @"/";
+                myuri2 = new Uri("http://proteinatlas.org/" + en + tissueType + @"tissue/" + (string)comboBox2.SelectedItem);
                 webBrowser2.Navigate(myuri2);
             }
 
             if (comboBox3.SelectedIndex != 0 & comboBox3.Enabled)
             {
-                myuri3 = new Uri("http://proteinatlas.org/" + en + @"/" + (string)comboBox3.SelectedItem);
+                if (comboBox3.SelectedIndex <= 20) tissueType = @"/pathology/"; else tissueType = @"/";
+                myuri3 = new Uri("http://proteinatlas.org/" + en + tissueType + @"tissue/" + (string)comboBox3.SelectedItem);
                 webBrowser3.Navigate(myuri3);
             }
 
             if (comboBox4.SelectedIndex != 0 & comboBox4.Enabled)
             {
-                myuri4 = new Uri("http://proteinatlas.org/" + en + @"/" + (string)comboBox4.SelectedItem);
+                if (comboBox4.SelectedIndex <= 20) tissueType = @"/pathology/"; else tissueType = @"/";
+                myuri4 = new Uri("http://proteinatlas.org/" + en + tissueType + @"tissue/" + (string)comboBox4.SelectedItem);
                 webBrowser4.Navigate(myuri4);
             }
 
@@ -460,32 +457,17 @@ namespace WindowsFormsApplication1
                  Application.DoEvents();
             }
 
-            int a=comboBox1.SelectedIndex,b=comboBox2.SelectedIndex,c=comboBox3.SelectedIndex,d=comboBox4.SelectedIndex;
-           
-            ia=0;ib=0;ic=0;id=0;
-            if (b==a) {ib=ia+1;} 
-            if (c==a) {ic=ia+1;}
-            if (c==b) {ic=ib+1;}
-            if (d==a) {id=ia+1;}
-            if (d==b) {id=ib+1;}
-            if (d==c) {id=ic+1;}
+            while (webBrowser3.ReadyState != WebBrowserReadyState.Complete)
+            {
+                Application.DoEvents();
+            }
 
-            sa = 1; sb = 1; sc = 1; sd = 1; 
-
-            if (a == b) { sa = 2; sb = 2; }
-            if (a == c) { sa = 2; sc = 2; }
-            if (a == d) { sa = 2; sd = 2; }
-            if (b == c) { sb = 2; sc = 2; }
-            if (b == d) { sb = 2; sd = 2; }
-            if (c == d) { sc = 2; sd = 2; }
-
-            if (a == b & a == c) { sa = 3; sb = 3; sc = 3; }
-            if (a == b & a == d) { sa = 3; sb = 3; sd = 3; }
-            if (b == c & b == d) { sb = 3; sc = 3; sd = 3; }
-
-            if (a == b & a == c & a == d) { sa = 4; sb = 4; sc = 4; sd = 4; }
-        
-
+            while (webBrowser4.ReadyState != WebBrowserReadyState.Complete)
+            {
+                Application.DoEvents();
+            }
+            initImageCountersAndSteps();
+                        
             if (windowNumber > 0) 
             {
                 getAbList(webBrowser1.DocumentText, 1); 
@@ -517,6 +499,36 @@ namespace WindowsFormsApplication1
 
             uploadInProcess = false;
         }
+
+        private void initImageCountersAndSteps() // it allows to compare stainings for the same gene. If two windows of the same gene is used then:
+                                           //window 1 will have image0, window 2 will have image 1 and image step for window 1 and 2 will be 2. 
+        {
+            int a = comboBox1.SelectedIndex, b = comboBox2.SelectedIndex, c = comboBox3.SelectedIndex, d = comboBox4.SelectedIndex;
+
+            ia = 0; ib = 0; ic = 0; id = 0;
+            if (b == a) { ib = ia + 1; }
+            if (c == a) { ic = ia + 1; }
+            if (c == b) { ic = ib + 1; }
+            if (d == a) { id = ia + 1; }
+            if (d == b) { id = ib + 1; }
+            if (d == c) { id = ic + 1; }
+
+            sa = 1; sb = 1; sc = 1; sd = 1;
+
+            if (a == b) { sa = 2; sb = 2; }
+            if (a == c) { sa = 2; sc = 2; }
+            if (a == d) { sa = 2; sd = 2; }
+            if (b == c) { sb = 2; sc = 2; }
+            if (b == d) { sb = 2; sd = 2; }
+            if (c == d) { sc = 2; sd = 2; }
+
+            if (a == b & a == c) { sa = 3; sb = 3; sc = 3; }
+            if (a == b & a == d) { sa = 3; sb = 3; sd = 3; }
+            if (b == c & b == d) { sb = 3; sc = 3; sd = 3; }
+
+            if (a == b & a == c & a == d) { sa = 4; sb = 4; sc = 4; sd = 4; }
+        }
+
 
         private void showEmpty(int wnd)
         {
@@ -644,6 +656,7 @@ namespace WindowsFormsApplication1
                 case 4: listBoxIm4.Items.Add(imagesCount); curMaxImg[4, 0] = 0; curMaxImg[4, 1] = imagesCount; break;
                 default: break;
             }
+            initImageCountersAndSteps();
         }
 
 
@@ -696,9 +709,7 @@ namespace WindowsFormsApplication1
                     }
                     catch (FormatException)
                     {
-                        exc += 1; //label10.Text = "E:" + exc;
-                       // label3.Text = s2;
-                        //label1.Text = firstCharacter.ToString();
+                        exc += 1; 
                     }
 
                 }
@@ -732,9 +743,7 @@ namespace WindowsFormsApplication1
                         }
                         catch (FormatException)
                         {
-                            exc += 1; //label10.Text = "E:" + exc;
-                          //  label3.Text = s2;
-                          //  label1.Text = firstCharacter.ToString();
+                            exc += 1; 
                         }
                     }
                 }
@@ -745,11 +754,9 @@ namespace WindowsFormsApplication1
 
         }
 
-
-
-
         private void Form1_Resize(object sender, EventArgs e)
         {
+            resize_upperStrip();
             if (radioButton1.Checked||radioButton2.Checked)  resize_browsers();
             if (radioButton3.Checked) resize_panels();
             resize_reqLists();
@@ -768,7 +775,7 @@ namespace WindowsFormsApplication1
             groupBox2.Height = he;
             groupBox6.Height = he;
 
-            groupBox7.Height = groupBox2.Height - 20;
+            groupBox7.Height = groupBox2.Height - 20 - groupBox8.Height;
             listView1.Height = groupBox7.Height - 76;
 
             groupBox6.Width = this.Width - 15 - groupBox2.Width;
@@ -809,16 +816,10 @@ namespace WindowsFormsApplication1
                 namesList[i].Top = llh + 48;
                 labelsList[i].Top = llh + 50;
             }
-          
-
-
-
         }
 
         private void resize_browsers()
         {
-            
-
             int half = 0;
             half = (int)Math.Round((double)(this.Width - 10) / 2);
             int tred = (int)Math.Round((double)(this.Width - 10) / 3);
@@ -937,33 +938,34 @@ namespace WindowsFormsApplication1
             comboBox2.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
             comboBox4.SelectedIndex = 0;
+            comboBox5.SelectedIndex = 0;
      
             labelAb1.Parent = pictureBox1;
             labelAb1.Top = 5;
             labelAb1.Left = 5;
-            labelAb1.BackColor = Color.Transparent;
-            labelAb1.ForeColor = Color.DarkGreen;
+            labelAb1.BackColor = Color.White;//Transparent;
+            labelAb1.ForeColor = Color.Black;//DarkGreen;
             labelAb1.Text = ".";
 
             labelAb2.Parent = pictureBox2;
             labelAb2.Top = 5;
             labelAb2.Left = 5;
-            labelAb2.BackColor = Color.Transparent;
-            labelAb2.ForeColor = Color.DarkGreen;
+            labelAb2.BackColor = Color.White;//.Transparent;
+            labelAb2.ForeColor = Color.Black;//.DarkGreen;
             labelAb2.Text = ".";
 
             labelAb3.Parent = pictureBox3;
             labelAb3.Top = 5;
             labelAb3.Left = 5;
-            labelAb3.BackColor = Color.Transparent;
-            labelAb3.ForeColor = Color.DarkGreen;
+            labelAb3.BackColor = Color.White;//.Transparent;
+            labelAb3.ForeColor = Color.Black;//.DarkGreen;
             labelAb3.Text = ".";
 
             labelAb4.Parent = pictureBox4;
             labelAb4.Top = 5;
             labelAb4.Left = 5;
-            labelAb4.BackColor = Color.Transparent;
-            labelAb4.ForeColor = Color.DarkGreen;
+            labelAb4.BackColor = Color.White;//.Transparent;
+            labelAb4.ForeColor = Color.Black;//.DarkGreen;
             labelAb4.Text = ".";
 
 
@@ -973,6 +975,7 @@ namespace WindowsFormsApplication1
             this.MouseWheel += new MouseEventHandler(wb1_MouseWheel);
 
             resize_browsers();
+            resize_upperStrip();
 
             columnHeader1.Width = listView1.Size.Width - 20;//
             listView1.HeaderStyle = ColumnHeaderStyle.None;
@@ -1124,10 +1127,6 @@ namespace WindowsFormsApplication1
             int geneOk = 0;
             int p1=0;
 
-           // windowNumber = 1;
-         //   resize_browsers();
-
-
             webBrowser1.Visible = true;
             webBrowser1.Width = this.Width;
             webBrowser1.Top = 50;
@@ -1138,10 +1137,8 @@ namespace WindowsFormsApplication1
 
             using (StreamReader sr = File.OpenText("53KGenes.txt"))
             {
-
-              //  while ((
                 cc = sr.ReadLine();
-                    //) != null)
+
                 {
 
                      myuri = new Uri(@"http://www.proteinatlas.org/" + cc + @"/cancer/breast+cancer");
@@ -1175,7 +1172,7 @@ namespace WindowsFormsApplication1
 
                      }
                      geneNumber += 1;
-                    // label3.Text = geneNumber.ToString()+" "+geneOk.ToString();
+                   
                 }
             }
 
@@ -1432,70 +1429,130 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void nextGene()
+        {
+            if (genesProc < geneNumber)
+            {
+                genesProc += 1;
+                download_page(ensa[genesProc]);
+
+                this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc + 1, geneNumber);
+
+                webBrowser1.Focus();
+                progressBar1.Value = genesProc;
+            }
+            else
+            {
+                MessageBox.Show("You did it! The last gene was reached!", "AtlasGrabber", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
+        }
+
+        private void previousGene()
+        {
+            if (genesProc > 0)
+            {
+                genesProc -= 1;
+                download_page(ensa[genesProc]);
+                this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc + 1, geneNumber);
+                progressBar1.Value = genesProc;
+            }
+            else
+            {
+                MessageBox.Show("First gene in the list is reached!", "AtlasGrabber", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+
+        }
+
 
         private void nextAb(int wndNr)
         {
-            if (curMaxAb[1, 1] > 0 & curMaxAb[1, 0] < curMaxAb[1, 1])
+            if (  !(curMaxAb[1, 1] > 0 & curMaxAb[1, 0] < curMaxAb[1, 1])
+                & !(curMaxAb[2, 1] > 0 & curMaxAb[2, 0] < curMaxAb[2, 1])
+                & !(curMaxAb[3, 1] > 0 & curMaxAb[3, 0] < curMaxAb[3, 1])
+                & !(curMaxAb[4, 1] > 0 & curMaxAb[4, 0] < curMaxAb[4, 1]))
             {
-                curMaxAb[1, 0] += 1;
-                getImageList(webBrowser1.DocumentText, 1, curMaxAb[1, 0]);
-                if (imagesList1.Count > 0) GetIt2(imagesList1[0], 1);
+                //all antibodies were shown, process next gene 
+                nextGene();
             }
-
-            if (curMaxAb[2, 1] > 0 & curMaxAb[2, 0] < curMaxAb[2, 1])
+            else
             {
-                curMaxAb[2, 0] += 1;
-                getImageList(webBrowser2.DocumentText, 2, curMaxAb[2, 0]);
-                if (imagesList2.Count > 0) GetIt2(imagesList2[0], 2);
-            }
+                
+                if (curMaxAb[1, 1] > 0 & curMaxAb[1, 0] < curMaxAb[1, 1])
+                {
+                    curMaxAb[1, 0] += 1;
+                    getImageList(webBrowser1.DocumentText, 1, curMaxAb[1, 0]);
+                    if (imagesList1.Count > 0) GetIt2(imagesList1[0], 1);
+                }
 
-            if (curMaxAb[3, 1] > 0 & curMaxAb[3, 0] < curMaxAb[3, 1])
-            {
-                curMaxAb[3, 0] += 1;
-                getImageList(webBrowser3.DocumentText, 3, curMaxAb[3, 0]);
-                if (imagesList3.Count > 0) GetIt2(imagesList3[0], 3);
-            }
+                if (curMaxAb[2, 1] > 0 & curMaxAb[2, 0] < curMaxAb[2, 1])
+                {
+                    curMaxAb[2, 0] += 1;
+                    getImageList(webBrowser2.DocumentText, 2, curMaxAb[2, 0]);
+                    if (imagesList2.Count > 0) GetIt2(imagesList2[0], 2);
+                }
 
-            if (curMaxAb[4, 1] > 0 & curMaxAb[4, 0] < curMaxAb[4, 1])
-            {
-                curMaxAb[4, 0] += 1;
-                getImageList(webBrowser4.DocumentText, 4, curMaxAb[4, 0]);
-                if (imagesList4.Count > 0) GetIt2(imagesList4[0], 4);
-            }
+                if (curMaxAb[3, 1] > 0 & curMaxAb[3, 0] < curMaxAb[3, 1])
+                {
+                    curMaxAb[3, 0] += 1;
+                    getImageList(webBrowser3.DocumentText, 3, curMaxAb[3, 0]);
+                    if (imagesList3.Count > 0) GetIt2(imagesList3[0], 3);
+                }
 
+                if (curMaxAb[4, 1] > 0 & curMaxAb[4, 0] < curMaxAb[4, 1])
+                {
+                    curMaxAb[4, 0] += 1;
+                    getImageList(webBrowser4.DocumentText, 4, curMaxAb[4, 0]);
+                    if (imagesList4.Count > 0) GetIt2(imagesList4[0], 4);
+                }
+
+            }
         }
 
         private void previousAb(int wndNr)
         {
-            if (curMaxAb[1, 1] > 0 & curMaxAb[1, 0] > 0)
-            {
-                curMaxAb[1, 0] -= 1;
-                getImageList(webBrowser1.DocumentText, 1, curMaxAb[1, 0]);
-                if (imagesList1.Count > 0) GetIt2(imagesList1[0], 1);
+            if (!(curMaxAb[1, 1] > 0 & curMaxAb[1, 0] > 0)
+                & !(curMaxAb[2, 1] > 0 & curMaxAb[2, 0] > 0)
+                & !(curMaxAb[3, 1] > 0 & curMaxAb[3, 0] > 0)
+                & !(curMaxAb[4, 1] > 0 & curMaxAb[4, 0] > 0))
+            {  //Antibody list is finished, return to previous gene
+                previousGene();
             }
-
-            if (curMaxAb[2, 1] > 0 & curMaxAb[2, 0] > 0)
+            else
             {
-                curMaxAb[2, 0] -= 1;
-                getImageList(webBrowser2.DocumentText, 2, curMaxAb[2, 0]);
-                if (imagesList2.Count > 0) GetIt2(imagesList2[0], 2);
-            }
 
-            if (curMaxAb[3, 1] > 0 & curMaxAb[3, 0] > 0)
-            {
-                curMaxAb[3, 0] -= 1;
-                getImageList(webBrowser3.DocumentText, 3, curMaxAb[3, 0]);
-                if (imagesList3.Count > 0) GetIt2(imagesList3[0], 3);
-            }
+                if (curMaxAb[1, 1] > 0 & curMaxAb[1, 0] > 0)
+                {
+                    curMaxAb[1, 0] -= 1;
+                    getImageList(webBrowser1.DocumentText, 1, curMaxAb[1, 0]);
+                    if (imagesList1.Count > 0) GetIt2(imagesList1[0], 1);
+                }
 
-            if (curMaxAb[4, 1] > 0 & curMaxAb[4, 0] > 0)
-            {
-                curMaxAb[4, 0] -= 1;
-                getImageList(webBrowser4.DocumentText, 4, curMaxAb[4, 0]);
-                if (imagesList4.Count > 0) GetIt2(imagesList4[0], 4);
-            }
+                if (curMaxAb[2, 1] > 0 & curMaxAb[2, 0] > 0)
+                {
+                    curMaxAb[2, 0] -= 1;
+                    getImageList(webBrowser2.DocumentText, 2, curMaxAb[2, 0]);
+                    if (imagesList2.Count > 0) GetIt2(imagesList2[0], 2);
+                }
 
+                if (curMaxAb[3, 1] > 0 & curMaxAb[3, 0] > 0)
+                {
+                    curMaxAb[3, 0] -= 1;
+                    getImageList(webBrowser3.DocumentText, 3, curMaxAb[3, 0]);
+                    if (imagesList3.Count > 0) GetIt2(imagesList3[0], 3);
+                }
+
+                if (curMaxAb[4, 1] > 0 & curMaxAb[4, 0] > 0)
+                {
+                    curMaxAb[4, 0] -= 1;
+                    getImageList(webBrowser4.DocumentText, 4, curMaxAb[4, 0]);
+                    if (imagesList4.Count > 0) GetIt2(imagesList4[0], 4);
+                }
+            }
         }
+
+
         private void button2_Click_1(object sender, EventArgs e)
         {
             nextImg(1);
@@ -1504,21 +1561,35 @@ namespace WindowsFormsApplication1
 
         private void nextImg(int wndNr) 
         {
-            if (imagesList1.Count > ia + sa) { ia += sa; GetIt2(imagesList1[ia], 1); } ;
-            if (imagesList2.Count > ib + sb) { ib += sb; GetIt2(imagesList2[ib], 2); } ;
-            if (imagesList3.Count > ic + sc) { ic += sc; GetIt2(imagesList3[ic], 3); } ;
-            if (imagesList4.Count > id + sd) { id += sd; GetIt2(imagesList4[id], 4); } ;
+            if (!(imagesList1.Count > ia + sa) & !(imagesList2.Count > ib + sb) & !(imagesList3.Count > ic + sc) & !(imagesList4.Count > id + sd))//end of image list for this Ab reached 
+            {                                                                                                                                 //next Ab needed
+                nextAb(wndNr);
+            }
+            else// change image
+            {
 
+                if (imagesList1.Count > ia + sa) { ia += sa; GetIt2(imagesList1[ia], 1); };
+                if (imagesList2.Count > ib + sb) { ib += sb; GetIt2(imagesList2[ib], 2); };
+                if (imagesList3.Count > ic + sc) { ic += sc; GetIt2(imagesList3[ic], 3); };
+                if (imagesList4.Count > id + sd) { id += sd; GetIt2(imagesList4[id], 4); };
+            }
+            
             wheelProcessing = false;
         }
 
         private void previousImg(int wndNr) 
         {
-            if ( ia - sa >= 0) { ia -= sa; GetIt2(imagesList1[ia], 1); } ;
-            if ( ib - sb >= 0) { ib -= sb; GetIt2(imagesList2[ib], 2); } ;
-            if ( ic - sc >= 0) { ic -= sc; GetIt2(imagesList3[ic], 3); } ;
-            if ( id - sd >= 0) { id -= sd; GetIt2(imagesList4[id], 4); } ;
-
+            if (!(ia - sa >= 0) & !(ib - sb >= 0) & !(ic - sc >= 0) & !(id - sd >= 0))
+            {
+                previousAb(wndNr);
+            }
+            else
+            {
+                if (ia - sa >= 0) { ia -= sa; GetIt2(imagesList1[ia], 1); };
+                if (ib - sb >= 0) { ib -= sb; GetIt2(imagesList2[ib], 2); };
+                if (ic - sc >= 0) { ic -= sc; GetIt2(imagesList3[ic], 3); };
+                if (id - sd >= 0) { id -= sd; GetIt2(imagesList4[id], 4); };
+            }
             wheelProcessing = false;
 
         }
@@ -1696,7 +1767,8 @@ namespace WindowsFormsApplication1
                 groupBox6.SendToBack();
                 groupBox1.SendToBack();
                 groupBox2.SendToBack();
-            
+
+                if (textBox34.Text != "") download_page(textBox34.Text);
                 resize_panels();
                 radioButton3.Focus();
 
@@ -2026,7 +2098,7 @@ namespace WindowsFormsApplication1
             if (genesProc > geneNumber) genesProc = geneNumber;
             listView1.FocusedItem = listView1.Items[genesProc];
 
-            groupBox4.Text = String.Format("Genes to analyze ({0}/{1})", genesProc + 1, geneNumber);
+            groupBox7.Text = String.Format("Genes to analyze ({0}/{1})", genesProc + 1, geneNumber);
            // label3.Text = String.Format("Genes ({0}/{1})", genesProc +1, geneNumber);
             this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc + 1, geneNumber);
             progressBar1.Maximum = geneNumber-1;
@@ -2080,7 +2152,7 @@ namespace WindowsFormsApplication1
             if (listView1.FocusedItem.Index != -1)
             {
                 genesProc = listView1.FocusedItem.Index;
-                groupBox4.Text = String.Format("Genes to analyze ({0}/{1})", genesProc +1, geneNumber);
+                groupBox7.Text = String.Format("Genes to analyze ({0}/{1})", genesProc +1, geneNumber);
                 //label3.Text = String.Format("Genes ({0}/{1})", genesProc+1, geneNumber);
                 this.Text = String.Format(programName + "Genes ({0}/{1})", genesProc + 1, geneNumber);
                 progressBar1.Value = genesProc;
@@ -2275,7 +2347,7 @@ namespace WindowsFormsApplication1
             if (radioButton10.Checked) typeOfImCapt = 2;
             if (radioButton11.Checked) typeOfImCapt = 3;
             int k;
-            Image im;
+           // Image im;
             string fn;
             string url;
             WebClient webClient;
@@ -2411,7 +2483,7 @@ namespace WindowsFormsApplication1
 
             int firstCharacter = 0;
             int secondCharacter = 0;
-            int imagesCount = 0;
+            //int imagesCount = 0;
 
             int pID = 0;
             int med2;
@@ -2522,22 +2594,125 @@ namespace WindowsFormsApplication1
                 }
             }
 
+        }  
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://github.com/b3nb0z/AtlasGrabber/blob/master/README.md");
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void resize_upperStrip()
         {
-            Form f = new Form3();
-            f.ShowDialog();
+            int wi = this.Width - 152- 33;
+            progressBar1.Width = wi-33;
+
+            int cmbw = wi / 4 - 33;
+            comboBox1.Width = cmbw;
+
+            comboBox2.Width = cmbw;
+            comboBox3.Width = cmbw;
+            comboBox4.Width = cmbw;
+
+            label13.Left = comboBox1.Right + 4;
+            comboBox2.Left = label13.Right - 1;
+
+            label14.Left = comboBox2.Right + 4;
+            comboBox3.Left = label14.Right - 1;
+
+            label15.Left = comboBox3.Right + 4;
+            comboBox4.Left = label15.Right - 1;
+
+
+
+        }
+
+        private void parser(bool shortRun, string tissueType)
+        {
+            string XMLpth; string outputpth;
+            openFileDialog1.FileName = "proteinatlas.xml";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                XMLpth = openFileDialog1.FileName;
+                string validName = tissueType.Replace(@"/", "_");
+
+                outputpth = Path.GetDirectoryName(XMLpth) + @"\" + validName + ".txt";
+                //label2.Text = "Output:" + outputpth;
+                this.Width = label2.Width + 30;
+
+                int i = 0; int j = 0;
+                string ensg = "";
+                string abId = "";
+                string tissue = "";
+                string tissueDescr = "";
+                string iurl = "";
+                string pid = "";
+                int ensn = 0;
+                {
+                    StreamWriter sw = new StreamWriter(outputpth);
+                    XmlTextReader reader = new XmlTextReader(XMLpth);
+                    while (reader.Read() && j < 100000) // j wil be incremenrted in short run only
+                    {
+                        switch (reader.NodeType)
+                        {
+                            case XmlNodeType.Element:
+                                if (reader.Name == "identifier")        //doing nothing for the moment, just counting ENSG's
+                                {
+                                    ensg = reader.GetAttribute("id");
+                                    //sw.WriteLine(ensg); 
+                                    ensn++;
+                                }
+
+                                if (reader.Name == "antibody")          //doing nothing for the moment, could be used to create dictionaries.
+                                {
+                                    abId = reader.GetAttribute("id");
+                                    //  sw.WriteLine(ensg + " " + abId);    
+                                }
+
+                                if (reader.Name == "tissue")            //doing nothing for the moment
+                                {
+                                    tissue = reader.ReadElementContentAsString();
+                                    // sw.WriteLine(ensg + " " + abId+" "+tissue);
+                                }
+
+                                if ((reader.Name == "patient") && (tissue == tissueType))
+                                {
+                                    reader.ReadToFollowing("patientId");
+                                    pid = reader.ReadElementContentAsString();
+
+                                    reader.ReadToFollowing("snomed");
+                                    tissueDescr = reader.GetAttribute("tissueDescription");
+                                    tissueDescr += ", ";
+                                    reader.ReadToFollowing("snomed");
+                                    tissueDescr += reader.GetAttribute("tissueDescription");
+                                    reader.ReadToFollowing("imageUrl");
+                                    iurl = reader.ReadElementContentAsString();
+                                    sw.WriteLine(ensg + ";" + abId + ";" + tissue + ";" + tissueDescr + ";" + pid + ";" + iurl);
+                                }
+                                break;
+                        }
+                        i++;
+                        if (i % 10000 == 0) { groupBox8.Text = "XML parser " + (i / 1000).ToString() + "k lines analysed " + ensn.ToString() + " ENSG's found"; Application.DoEvents(); }
+                        if (shortRun) j++;
+
+                    }
+
+                    sw.Close();
+                    if (shortRun) System.Diagnostics.Process.Start(outputpth);
+
+                }
+            }
+
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            Form f = new Form2();
-            f.ShowDialog();
+            parser(true, (string)comboBox5.SelectedItem);
         }
 
-        
-
+        private void button12_Click(object sender, EventArgs e)
+        {
+            parser(false, (string)comboBox5.SelectedItem);
+        }
      
     }
 }

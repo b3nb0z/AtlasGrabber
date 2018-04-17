@@ -91,6 +91,18 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LoadGeneListBtn = new System.Windows.Forms.Button();
+            this.SaveRestBtn = new System.Windows.Forms.Button();
+            this.ClearGeneListBtn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
@@ -105,13 +117,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label27 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ClearGeneListBtn = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SaveRestBtn = new System.Windows.Forms.Button();
-            this.LoadGeneListBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -121,6 +127,8 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.label0 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -151,12 +159,8 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox6 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -169,12 +173,14 @@
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -280,73 +286,70 @@
             this.comboBox1.IntegralHeight = false;
             this.comboBox1.Items.AddRange(new object[] {
             "None",
-            "cancer/tissue/breast+cancer",
-            "cancer/tissue/carcinoid",
-            "cancer/tissue/colorectal+cancer",
-            "cancer/tissue/endometrial+cancer",
-            "cancer/tissue/glioma",
-            "cancer/tissue/head+and+neck+cancer",
-            "cancer/tissue/liver+cancer",
-            "cancer/tissue/lung+cancer",
-            "cancer/tissue/lymphoma",
-            "cancer/tissue/melanoma",
-            "cancer/tissue/ovarian+cancer",
-            "cancer/tissue/pancreatic+cancer",
-            "cancer/tissue/prostate+cancer",
-            "cancer/tissue/renal+cancer",
-            "cancer/tissue/skin+cancer",
-            "cancer/tissue/stomach+cancer",
-            "cancer/tissue/testis+cancer",
-            "cancer/tissue/thyroid+cancer",
-            "cancer/tissue/urothelial+cancer",
-            "normal/adrenal+gland",
-            "normal/appendix",
-            "normal/bone+marrow",
-            "normal/breast",
-            "normal/bronchus",
-            "normal/cerebellum",
-            "normal/cerebral+cortex",
-            "normal/cervix%2C+uterine",
-            "normal/colon",
-            "normal/duodenum",
-            "normal/epididymis",
-            "normal/esophagus",
-            "normal/fallopian+tube",
-            "normal/gallbladder",
-            "normal/heart+muscle",
-            "normal/hippocampus",
-            "normal/kidney",
-            "normal/lateral+ventricle",
-            "normal/liver",
-            "normal/lung",
-            "normal/lymph+node",
-            "normal/nasopharynx",
-            "normal/oral+mucosa",
-            "normal/ovary",
-            "normal/pancreas",
-            "normal/parathyroid+gland",
-            "normal/placenta",
-            "normal/prostate",
-            "normal/rectum",
-            "normal/salivary+gland",
-            "normal/seminal+vesicle",
-            "normal/skeletal+muscle",
-            "normal/skin",
-            "normal/small+intestine",
-            "normal/smooth+muscle",
-            "normal/soft+tissue+1",
-            "normal/soft+tissue+2",
-            "normal/spleen",
-            "normal/stomach%2C+lower",
-            "normal/stomach%2C+upper",
-            "normal/testis",
-            "normal/thyroid+gland",
-            "normal/tonsil",
-            "normal/urinary+bladder",
-            "normal/uterus%2C+post-menopause",
-            "normal/uterus%2C+pre-menopause",
-            "normal/vagina",
-            "normal/vulva%2Fanal+skin"});
+            "breast cancer",
+            "carcinoid",
+            "cervical cancer",
+            "colorectal cancer",
+            "endometrial cancer",
+            "glioma",
+            "head and neck cancer",
+            "liver cancer",
+            "lung cancer",
+            "lymphoma",
+            "melanoma",
+            "ovarian cancer",
+            "pancreatic cancer",
+            "prostate cancer",
+            "renal cancer",
+            "skin cancer",
+            "stomach cancer",
+            "testis cancer",
+            "thyroid cancer",
+            "urothelial cancer",
+            "adrenal gland",
+            "anal skin",
+            "appendix",
+            "bone marrow",
+            "breast",
+            "bronchus",
+            "caudate",
+            "cerebellum",
+            "cerebral cortex",
+            "cervix, uterine",
+            "colon",
+            "duodenum",
+            "endometrium",
+            "epididymis",
+            "esophagus",
+            "fallopian tube",
+            "gallbladder",
+            "heart muscle",
+            "hippocampus",
+            "kidney",
+            "liver",
+            "lung",
+            "lymph node",
+            "nasopharynx",
+            "oral mucosa",
+            "ovary",
+            "pancreas",
+            "parathyroid gland",
+            "placenta",
+            "prostate",
+            "salivary gland",
+            "seminal vesicle",
+            "skeletal muscle",
+            "skin",
+            "small intestine",
+            "smooth muscle",
+            "soft tissue",
+            "spleen",
+            "stomach",
+            "testis",
+            "thyroid gland",
+            "tonsil",
+            "urinary bladder",
+            "vagina"});
             this.comboBox1.Location = new System.Drawing.Point(26, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(196, 21);
@@ -390,73 +393,70 @@
             this.comboBox2.IntegralHeight = false;
             this.comboBox2.Items.AddRange(new object[] {
             "None",
-            "cancer/tissue/breast+cancer",
-            "cancer/tissue/carcinoid",
-            "cancer/tissue/colorectal+cancer",
-            "cancer/tissue/endometrial+cancer",
-            "cancer/tissue/glioma",
-            "cancer/tissue/head+and+neck+cancer",
-            "cancer/tissue/liver+cancer",
-            "cancer/tissue/lung+cancer",
-            "cancer/tissue/lymphoma",
-            "cancer/tissue/melanoma",
-            "cancer/tissue/ovarian+cancer",
-            "cancer/tissue/pancreatic+cancer",
-            "cancer/tissue/prostate+cancer",
-            "cancer/tissue/renal+cancer",
-            "cancer/tissue/skin+cancer",
-            "cancer/tissue/stomach+cancer",
-            "cancer/tissue/testis+cancer",
-            "cancer/tissue/thyroid+cancer",
-            "cancer/tissue/urothelial+cancer",
-            "normal/adrenal+gland",
-            "normal/appendix",
-            "normal/bone+marrow",
-            "normal/breast",
-            "normal/bronchus",
-            "normal/cerebellum",
-            "normal/cerebral+cortex",
-            "normal/cervix%2C+uterine",
-            "normal/colon",
-            "normal/duodenum",
-            "normal/epididymis",
-            "normal/esophagus",
-            "normal/fallopian+tube",
-            "normal/gallbladder",
-            "normal/heart+muscle",
-            "normal/hippocampus",
-            "normal/kidney",
-            "normal/lateral+ventricle",
-            "normal/liver",
-            "normal/lung",
-            "normal/lymph+node",
-            "normal/nasopharynx",
-            "normal/oral+mucosa",
-            "normal/ovary",
-            "normal/pancreas",
-            "normal/parathyroid+gland",
-            "normal/placenta",
-            "normal/prostate",
-            "normal/rectum",
-            "normal/salivary+gland",
-            "normal/seminal+vesicle",
-            "normal/skeletal+muscle",
-            "normal/skin",
-            "normal/small+intestine",
-            "normal/smooth+muscle",
-            "normal/soft+tissue+1",
-            "normal/soft+tissue+2",
-            "normal/spleen",
-            "normal/stomach%2C+lower",
-            "normal/stomach%2C+upper",
-            "normal/testis",
-            "normal/thyroid+gland",
-            "normal/tonsil",
-            "normal/urinary+bladder",
-            "normal/uterus%2C+post-menopause",
-            "normal/uterus%2C+pre-menopause",
-            "normal/vagina",
-            "normal/vulva%2Fanal+skin"});
+            "breast cancer",
+            "carcinoid",
+            "cervical cancer",
+            "colorectal cancer",
+            "endometrial cancer",
+            "glioma",
+            "head and neck cancer",
+            "liver cancer",
+            "lung cancer",
+            "lymphoma",
+            "melanoma",
+            "ovarian cancer",
+            "pancreatic cancer",
+            "prostate cancer",
+            "renal cancer",
+            "skin cancer",
+            "stomach cancer",
+            "testis cancer",
+            "thyroid cancer",
+            "urothelial cancer",
+            "adrenal gland",
+            "anal skin",
+            "appendix",
+            "bone marrow",
+            "breast",
+            "bronchus",
+            "caudate",
+            "cerebellum",
+            "cerebral cortex",
+            "cervix, uterine",
+            "colon",
+            "duodenum",
+            "endometrium",
+            "epididymis",
+            "esophagus",
+            "fallopian tube",
+            "gallbladder",
+            "heart muscle",
+            "hippocampus",
+            "kidney",
+            "liver",
+            "lung",
+            "lymph node",
+            "nasopharynx",
+            "oral mucosa",
+            "ovary",
+            "pancreas",
+            "parathyroid gland",
+            "placenta",
+            "prostate",
+            "salivary gland",
+            "seminal vesicle",
+            "skeletal muscle",
+            "skin",
+            "small intestine",
+            "smooth muscle",
+            "soft tissue",
+            "spleen",
+            "stomach",
+            "testis",
+            "thyroid gland",
+            "tonsil",
+            "urinary bladder",
+            "vagina"});
             this.comboBox2.Location = new System.Drawing.Point(249, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(196, 21);
@@ -466,7 +466,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 5);
+            this.label12.Location = new System.Drawing.Point(3, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(24, 13);
             this.label12.TabIndex = 47;
@@ -490,73 +490,70 @@
             this.comboBox3.IntegralHeight = false;
             this.comboBox3.Items.AddRange(new object[] {
             "None",
-            "cancer/tissue/breast+cancer",
-            "cancer/tissue/carcinoid",
-            "cancer/tissue/colorectal+cancer",
-            "cancer/tissue/endometrial+cancer",
-            "cancer/tissue/glioma",
-            "cancer/tissue/head+and+neck+cancer",
-            "cancer/tissue/liver+cancer",
-            "cancer/tissue/lung+cancer",
-            "cancer/tissue/lymphoma",
-            "cancer/tissue/melanoma",
-            "cancer/tissue/ovarian+cancer",
-            "cancer/tissue/pancreatic+cancer",
-            "cancer/tissue/prostate+cancer",
-            "cancer/tissue/renal+cancer",
-            "cancer/tissue/skin+cancer",
-            "cancer/tissue/stomach+cancer",
-            "cancer/tissue/testis+cancer",
-            "cancer/tissue/thyroid+cancer",
-            "cancer/tissue/urothelial+cancer",
-            "normal/adrenal+gland",
-            "normal/appendix",
-            "normal/bone+marrow",
-            "normal/breast",
-            "normal/bronchus",
-            "normal/cerebellum",
-            "normal/cerebral+cortex",
-            "normal/cervix%2C+uterine",
-            "normal/colon",
-            "normal/duodenum",
-            "normal/epididymis",
-            "normal/esophagus",
-            "normal/fallopian+tube",
-            "normal/gallbladder",
-            "normal/heart+muscle",
-            "normal/hippocampus",
-            "normal/kidney",
-            "normal/lateral+ventricle",
-            "normal/liver",
-            "normal/lung",
-            "normal/lymph+node",
-            "normal/nasopharynx",
-            "normal/oral+mucosa",
-            "normal/ovary",
-            "normal/pancreas",
-            "normal/parathyroid+gland",
-            "normal/placenta",
-            "normal/prostate",
-            "normal/rectum",
-            "normal/salivary+gland",
-            "normal/seminal+vesicle",
-            "normal/skeletal+muscle",
-            "normal/skin",
-            "normal/small+intestine",
-            "normal/smooth+muscle",
-            "normal/soft+tissue+1",
-            "normal/soft+tissue+2",
-            "normal/spleen",
-            "normal/stomach%2C+lower",
-            "normal/stomach%2C+upper",
-            "normal/testis",
-            "normal/thyroid+gland",
-            "normal/tonsil",
-            "normal/urinary+bladder",
-            "normal/uterus%2C+post-menopause",
-            "normal/uterus%2C+pre-menopause",
-            "normal/vagina",
-            "normal/vulva%2Fanal+skin"});
+            "breast cancer",
+            "carcinoid",
+            "cervical cancer",
+            "colorectal cancer",
+            "endometrial cancer",
+            "glioma",
+            "head and neck cancer",
+            "liver cancer",
+            "lung cancer",
+            "lymphoma",
+            "melanoma",
+            "ovarian cancer",
+            "pancreatic cancer",
+            "prostate cancer",
+            "renal cancer",
+            "skin cancer",
+            "stomach cancer",
+            "testis cancer",
+            "thyroid cancer",
+            "urothelial cancer",
+            "adrenal gland",
+            "anal skin",
+            "appendix",
+            "bone marrow",
+            "breast",
+            "bronchus",
+            "caudate",
+            "cerebellum",
+            "cerebral cortex",
+            "cervix, uterine",
+            "colon",
+            "duodenum",
+            "endometrium",
+            "epididymis",
+            "esophagus",
+            "fallopian tube",
+            "gallbladder",
+            "heart muscle",
+            "hippocampus",
+            "kidney",
+            "liver",
+            "lung",
+            "lymph node",
+            "nasopharynx",
+            "oral mucosa",
+            "ovary",
+            "pancreas",
+            "parathyroid gland",
+            "placenta",
+            "prostate",
+            "salivary gland",
+            "seminal vesicle",
+            "skeletal muscle",
+            "skin",
+            "small intestine",
+            "smooth muscle",
+            "soft tissue",
+            "spleen",
+            "stomach",
+            "testis",
+            "thyroid gland",
+            "tonsil",
+            "urinary bladder",
+            "vagina"});
             this.comboBox3.Location = new System.Drawing.Point(472, 2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(196, 21);
@@ -572,73 +569,70 @@
             this.comboBox4.IntegralHeight = false;
             this.comboBox4.Items.AddRange(new object[] {
             "None",
-            "cancer/tissue/breast+cancer",
-            "cancer/tissue/carcinoid",
-            "cancer/tissue/colorectal+cancer",
-            "cancer/tissue/endometrial+cancer",
-            "cancer/tissue/glioma",
-            "cancer/tissue/head+and+neck+cancer",
-            "cancer/tissue/liver+cancer",
-            "cancer/tissue/lung+cancer",
-            "cancer/tissue/lymphoma",
-            "cancer/tissue/melanoma",
-            "cancer/tissue/ovarian+cancer",
-            "cancer/tissue/pancreatic+cancer",
-            "cancer/tissue/prostate+cancer",
-            "cancer/tissue/renal+cancer",
-            "cancer/tissue/skin+cancer",
-            "cancer/tissue/stomach+cancer",
-            "cancer/tissue/testis+cancer",
-            "cancer/tissue/thyroid+cancer",
-            "cancer/tissue/urothelial+cancer",
-            "normal/adrenal+gland",
-            "normal/appendix",
-            "normal/bone+marrow",
-            "normal/breast",
-            "normal/bronchus",
-            "normal/cerebellum",
-            "normal/cerebral+cortex",
-            "normal/cervix%2C+uterine",
-            "normal/colon",
-            "normal/duodenum",
-            "normal/epididymis",
-            "normal/esophagus",
-            "normal/fallopian+tube",
-            "normal/gallbladder",
-            "normal/heart+muscle",
-            "normal/hippocampus",
-            "normal/kidney",
-            "normal/lateral+ventricle",
-            "normal/liver",
-            "normal/lung",
-            "normal/lymph+node",
-            "normal/nasopharynx",
-            "normal/oral+mucosa",
-            "normal/ovary",
-            "normal/pancreas",
-            "normal/parathyroid+gland",
-            "normal/placenta",
-            "normal/prostate",
-            "normal/rectum",
-            "normal/salivary+gland",
-            "normal/seminal+vesicle",
-            "normal/skeletal+muscle",
-            "normal/skin",
-            "normal/small+intestine",
-            "normal/smooth+muscle",
-            "normal/soft+tissue+1",
-            "normal/soft+tissue+2",
-            "normal/spleen",
-            "normal/stomach%2C+lower",
-            "normal/stomach%2C+upper",
-            "normal/testis",
-            "normal/thyroid+gland",
-            "normal/tonsil",
-            "normal/urinary+bladder",
-            "normal/uterus%2C+post-menopause",
-            "normal/uterus%2C+pre-menopause",
-            "normal/vagina",
-            "normal/vulva%2Fanal+skin"});
+            "breast cancer",
+            "carcinoid",
+            "cervical cancer",
+            "colorectal cancer",
+            "endometrial cancer",
+            "glioma",
+            "head and neck cancer",
+            "liver cancer",
+            "lung cancer",
+            "lymphoma",
+            "melanoma",
+            "ovarian cancer",
+            "pancreatic cancer",
+            "prostate cancer",
+            "renal cancer",
+            "skin cancer",
+            "stomach cancer",
+            "testis cancer",
+            "thyroid cancer",
+            "urothelial cancer",
+            "adrenal gland",
+            "anal skin",
+            "appendix",
+            "bone marrow",
+            "breast",
+            "bronchus",
+            "caudate",
+            "cerebellum",
+            "cerebral cortex",
+            "cervix, uterine",
+            "colon",
+            "duodenum",
+            "endometrium",
+            "epididymis",
+            "esophagus",
+            "fallopian tube",
+            "gallbladder",
+            "heart muscle",
+            "hippocampus",
+            "kidney",
+            "liver",
+            "lung",
+            "lymph node",
+            "nasopharynx",
+            "oral mucosa",
+            "ovary",
+            "pancreas",
+            "parathyroid gland",
+            "placenta",
+            "prostate",
+            "salivary gland",
+            "seminal vesicle",
+            "skeletal muscle",
+            "skin",
+            "small intestine",
+            "smooth muscle",
+            "soft tissue",
+            "spleen",
+            "stomach",
+            "testis",
+            "thyroid gland",
+            "tonsil",
+            "urinary bladder",
+            "vagina"});
             this.comboBox4.Location = new System.Drawing.Point(697, 3);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(196, 21);
@@ -656,6 +650,7 @@
             // 
             // label15
             // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(674, 6);
             this.label15.Name = "label15";
@@ -818,43 +813,48 @@
             // labelAb1
             // 
             this.labelAb1.AutoSize = true;
+            this.labelAb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAb1.Location = new System.Drawing.Point(12, 363);
             this.labelAb1.Name = "labelAb1";
-            this.labelAb1.Size = new System.Drawing.Size(48, 13);
+            this.labelAb1.Size = new System.Drawing.Size(71, 17);
             this.labelAb1.TabIndex = 52;
             this.labelAb1.Text = "labelAb1";
             // 
             // labelAb2
             // 
             this.labelAb2.AutoSize = true;
+            this.labelAb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAb2.Location = new System.Drawing.Point(12, 376);
             this.labelAb2.Name = "labelAb2";
-            this.labelAb2.Size = new System.Drawing.Size(48, 13);
+            this.labelAb2.Size = new System.Drawing.Size(71, 17);
             this.labelAb2.TabIndex = 52;
             this.labelAb2.Text = "labelAb1";
             // 
             // labelAb3
             // 
             this.labelAb3.AutoSize = true;
+            this.labelAb3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAb3.Location = new System.Drawing.Point(12, 389);
             this.labelAb3.Name = "labelAb3";
-            this.labelAb3.Size = new System.Drawing.Size(48, 13);
+            this.labelAb3.Size = new System.Drawing.Size(71, 17);
             this.labelAb3.TabIndex = 52;
             this.labelAb3.Text = "labelAb1";
             // 
             // labelAb4
             // 
             this.labelAb4.AutoSize = true;
+            this.labelAb4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAb4.Location = new System.Drawing.Point(12, 402);
             this.labelAb4.Name = "labelAb4";
-            this.labelAb4.Size = new System.Drawing.Size(48, 13);
+            this.labelAb4.Size = new System.Drawing.Size(71, 17);
             this.labelAb4.TabIndex = 52;
             this.labelAb4.Text = "labelAb1";
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(899, 0);
+            this.radioButton1.Enabled = false;
+            this.radioButton1.Location = new System.Drawing.Point(81, 2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(68, 17);
             this.radioButton1.TabIndex = 54;
@@ -865,22 +865,24 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(973, 0);
+            this.radioButton2.Location = new System.Drawing.Point(83, 26);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(75, 17);
             this.radioButton2.TabIndex = 55;
             this.radioButton2.Text = "All at once";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Visible = false;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(899, 16);
+            this.radioButton3.Enabled = false;
+            this.radioButton3.Location = new System.Drawing.Point(81, 16);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(59, 17);
+            this.radioButton3.Size = new System.Drawing.Size(63, 17);
             this.radioButton3.TabIndex = 56;
-            this.radioButton3.Text = "Images";
+            this.radioButton3.Text = "Analysis";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             this.radioButton3.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.webBrowser1_PreviewKeyDown);
@@ -1051,10 +1053,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox8);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.button12);
             this.groupBox2.Controls.Add(this.groupBox7);
-            this.groupBox2.Controls.Add(this.button11);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.linkLabel1);
@@ -1063,10 +1064,208 @@
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Location = new System.Drawing.Point(562, 80);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(285, 344);
+            this.groupBox2.Size = new System.Drawing.Size(309, 344);
             this.groupBox2.TabIndex = 65;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Requests";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox8.AutoSize = true;
+            this.groupBox8.Controls.Add(this.button12);
+            this.groupBox8.Controls.Add(this.button11);
+            this.groupBox8.Controls.Add(this.comboBox5);
+            this.groupBox8.Location = new System.Drawing.Point(4, 249);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(301, 92);
+            this.groupBox8.TabIndex = 79;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "XML parser";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(151, 46);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(144, 23);
+            this.button12.TabIndex = 48;
+            this.button12.Text = "Parse whole XML";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(6, 46);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(139, 23);
+            this.button11.TabIndex = 47;
+            this.button11.Text = "TestRun (100k lines)";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownHeight = 156;
+            this.comboBox5.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.comboBox5.IntegralHeight = false;
+            this.comboBox5.Items.AddRange(new object[] {
+            "breast cancer",
+            "carcinoid",
+            "cervical cancer",
+            "colorectal cancer",
+            "endometrial cancer",
+            "glioma",
+            "head and neck cancer",
+            "liver cancer",
+            "lung cancer",
+            "lymphoma",
+            "melanoma",
+            "ovarian cancer",
+            "pancreatic cancer",
+            "prostate cancer",
+            "renal cancer",
+            "skin cancer",
+            "stomach cancer",
+            "testis cancer",
+            "thyroid cancer",
+            "urothelial cancer",
+            "adrenal gland",
+            "anal skin",
+            "appendix",
+            "bone marrow",
+            "breast",
+            "bronchus",
+            "caudate",
+            "cerebellum",
+            "cerebral cortex",
+            "cervix, uterine",
+            "colon",
+            "duodenum",
+            "endometrium",
+            "epididymis",
+            "esophagus",
+            "fallopian tube",
+            "gallbladder",
+            "heart muscle",
+            "hippocampus",
+            "kidney",
+            "liver",
+            "lung",
+            "lymph node",
+            "nasopharynx",
+            "oral mucosa",
+            "ovary",
+            "pancreas",
+            "parathyroid gland",
+            "placenta",
+            "prostate",
+            "salivary gland",
+            "seminal vesicle",
+            "skeletal muscle",
+            "skin",
+            "small intestine",
+            "smooth muscle",
+            "soft tissue",
+            "spleen",
+            "stomach",
+            "testis",
+            "thyroid gland",
+            "tonsil",
+            "urinary bladder",
+            "vagina"});
+            this.comboBox5.Location = new System.Drawing.Point(6, 19);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(289, 21);
+            this.comboBox5.TabIndex = 46;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(148, 265);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 78;
+            this.label10.Text = "label10";
+            this.label10.Visible = false;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.listView1);
+            this.groupBox7.Controls.Add(this.LoadGeneListBtn);
+            this.groupBox7.Controls.Add(this.SaveRestBtn);
+            this.groupBox7.Controls.Add(this.ClearGeneListBtn);
+            this.groupBox7.Controls.Add(this.button2);
+            this.groupBox7.Location = new System.Drawing.Point(4, 17);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(168, 239);
+            this.groupBox7.TabIndex = 76;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Genes to analyse (0/0)";
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.listView1.Location = new System.Drawing.Point(7, 19);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(155, 160);
+            this.listView1.TabIndex = 65;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = 208;
+            // 
+            // LoadGeneListBtn
+            // 
+            this.LoadGeneListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LoadGeneListBtn.Location = new System.Drawing.Point(17, 187);
+            this.LoadGeneListBtn.Name = "LoadGeneListBtn";
+            this.LoadGeneListBtn.Size = new System.Drawing.Size(64, 20);
+            this.LoadGeneListBtn.TabIndex = 63;
+            this.LoadGeneListBtn.Text = "Load";
+            this.LoadGeneListBtn.UseVisualStyleBackColor = true;
+            this.LoadGeneListBtn.Click += new System.EventHandler(this.LoadGeneListBtn_Click);
+            // 
+            // SaveRestBtn
+            // 
+            this.SaveRestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SaveRestBtn.Enabled = false;
+            this.SaveRestBtn.Location = new System.Drawing.Point(87, 211);
+            this.SaveRestBtn.Name = "SaveRestBtn";
+            this.SaveRestBtn.Size = new System.Drawing.Size(63, 20);
+            this.SaveRestBtn.TabIndex = 64;
+            this.SaveRestBtn.Text = "SaveRest";
+            this.SaveRestBtn.UseVisualStyleBackColor = true;
+            this.SaveRestBtn.Click += new System.EventHandler(this.SaveRestBtn_Click);
+            // 
+            // ClearGeneListBtn
+            // 
+            this.ClearGeneListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ClearGeneListBtn.Enabled = false;
+            this.ClearGeneListBtn.Location = new System.Drawing.Point(87, 187);
+            this.ClearGeneListBtn.Name = "ClearGeneListBtn";
+            this.ClearGeneListBtn.Size = new System.Drawing.Size(63, 20);
+            this.ClearGeneListBtn.TabIndex = 67;
+            this.ClearGeneListBtn.Text = "Clear";
+            this.ClearGeneListBtn.UseVisualStyleBackColor = true;
+            this.ClearGeneListBtn.Click += new System.EventHandler(this.ClearGeneListBtn_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(17, 211);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(64, 20);
+            this.button2.TabIndex = 68;
+            this.button2.Text = "SaveAll";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox4
             // 
@@ -1074,7 +1273,7 @@
             this.groupBox4.Controls.Add(this.radioButton9);
             this.groupBox4.Controls.Add(this.radioButton10);
             this.groupBox4.Controls.Add(this.radioButton11);
-            this.groupBox4.Location = new System.Drawing.Point(155, 136);
+            this.groupBox4.Location = new System.Drawing.Point(178, 136);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(125, 112);
             this.groupBox4.TabIndex = 74;
@@ -1132,7 +1331,7 @@
             this.groupBox3.Controls.Add(this.radioButton6);
             this.groupBox3.Controls.Add(this.radioButton5);
             this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Location = new System.Drawing.Point(155, 17);
+            this.groupBox3.Location = new System.Drawing.Point(178, 17);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(125, 112);
             this.groupBox3.TabIndex = 73;
@@ -1225,28 +1424,6 @@
             this.button6.Visible = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(7, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 20);
-            this.button2.TabIndex = 68;
-            this.button2.Text = "SaveAll";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ClearGeneListBtn
-            // 
-            this.ClearGeneListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearGeneListBtn.Location = new System.Drawing.Point(73, 187);
-            this.ClearGeneListBtn.Name = "ClearGeneListBtn";
-            this.ClearGeneListBtn.Size = new System.Drawing.Size(63, 20);
-            this.ClearGeneListBtn.TabIndex = 67;
-            this.ClearGeneListBtn.Text = "Clear";
-            this.ClearGeneListBtn.UseVisualStyleBackColor = true;
-            this.ClearGeneListBtn.Click += new System.EventHandler(this.ClearGeneListBtn_Click);
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -1256,55 +1433,16 @@
             this.label22.TabIndex = 66;
             this.label22.Text = "Genes to analyse (0/0)";
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.listView1.Location = new System.Drawing.Point(7, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(129, 160);
-            this.listView1.TabIndex = 65;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Width = 208;
-            // 
-            // SaveRestBtn
-            // 
-            this.SaveRestBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SaveRestBtn.Location = new System.Drawing.Point(73, 211);
-            this.SaveRestBtn.Name = "SaveRestBtn";
-            this.SaveRestBtn.Size = new System.Drawing.Size(63, 20);
-            this.SaveRestBtn.TabIndex = 64;
-            this.SaveRestBtn.Text = "SaveRest";
-            this.SaveRestBtn.UseVisualStyleBackColor = true;
-            this.SaveRestBtn.Click += new System.EventHandler(this.SaveRestBtn_Click);
-            // 
-            // LoadGeneListBtn
-            // 
-            this.LoadGeneListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LoadGeneListBtn.Location = new System.Drawing.Point(7, 187);
-            this.LoadGeneListBtn.Name = "LoadGeneListBtn";
-            this.LoadGeneListBtn.Size = new System.Drawing.Size(64, 20);
-            this.LoadGeneListBtn.TabIndex = 63;
-            this.LoadGeneListBtn.Text = "Load";
-            this.LoadGeneListBtn.UseVisualStyleBackColor = true;
-            this.LoadGeneListBtn.Click += new System.EventHandler(this.LoadGeneListBtn_Click);
-            // 
             // radioButton12
             // 
             this.radioButton12.AutoSize = true;
             this.radioButton12.Checked = true;
-            this.radioButton12.Location = new System.Drawing.Point(973, 16);
+            this.radioButton12.Location = new System.Drawing.Point(7, 9);
             this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(71, 17);
+            this.radioButton12.Size = new System.Drawing.Size(63, 17);
             this.radioButton12.TabIndex = 66;
             this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Gene lists";
+            this.radioButton12.Text = "Settings";
             this.radioButton12.UseVisualStyleBackColor = true;
             this.radioButton12.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
             // 
@@ -1391,6 +1529,30 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Selected genes lists";
             // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(90, 427);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(102, 17);
+            this.checkBox3.TabIndex = 4;
+            this.checkBox3.Text = "Save empty lists";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button9.Location = new System.Drawing.Point(6, 423);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 3;
+            this.button9.Text = "Save all lists";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // label0
             // 
             this.label0.AutoSize = true;
@@ -1417,6 +1579,7 @@
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 2;
             this.label9.Text = "Key: 9";
+            this.label9.Visible = false;
             // 
             // label4
             // 
@@ -1641,91 +1804,44 @@
             this.listBox1.Size = new System.Drawing.Size(165, 134);
             this.listBox1.TabIndex = 0;
             // 
-            // button11
+            // button10
             // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.Location = new System.Drawing.Point(181, 314);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(97, 23);
-            this.button11.TabIndex = 75;
-            this.button11.Text = "Redefine Keys";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(1019, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(30, 31);
+            this.button10.TabIndex = 5;
+            this.button10.Text = "?";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // groupBox7
+            // panel5
             // 
-            this.groupBox7.Controls.Add(this.listView1);
-            this.groupBox7.Controls.Add(this.LoadGeneListBtn);
-            this.groupBox7.Controls.Add(this.SaveRestBtn);
-            this.groupBox7.Controls.Add(this.ClearGeneListBtn);
-            this.groupBox7.Controls.Add(this.button2);
-            this.groupBox7.Location = new System.Drawing.Point(4, 17);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(145, 239);
-            this.groupBox7.TabIndex = 76;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Genes to analyse (0/0)";
-            // 
-            // button12
-            // 
-            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button12.Location = new System.Drawing.Point(181, 284);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(97, 23);
-            this.button12.TabIndex = 77;
-            this.button12.Text = "Help";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(148, 265);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 78;
-            this.label10.Text = "label10";
-            this.label10.Visible = false;
-            // 
-            // button9
-            // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button9.Location = new System.Drawing.Point(6, 423);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "Save all lists";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(90, 427);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(102, 17);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Save empty lists";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.radioButton3);
+            this.panel5.Controls.Add(this.radioButton1);
+            this.panel5.Controls.Add(this.radioButton2);
+            this.panel5.Controls.Add(this.radioButton12);
+            this.panel5.Location = new System.Drawing.Point(863, 1);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(152, 34);
+            this.panel5.TabIndex = 69;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 605);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.radioButton12);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.listBoxAb2);
             this.Controls.Add(this.listBoxIm2);
             this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.labelAb1);
             this.Controls.Add(this.labelAb4);
             this.Controls.Add(this.labelAb3);
@@ -1756,14 +1872,13 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.Sort53K);
             this.DoubleBuffered = true;
             this.HelpButton = true;
             this.MinimumSize = new System.Drawing.Size(1058, 632);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Human Protein Atlas Grabber";
+            this.Text = "Atlas Grabber";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.webBrowser1_PreviewKeyDown);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -1786,6 +1901,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1794,7 +1911,8 @@
             this.contextMenuStrip3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1924,12 +2042,16 @@
         private System.Windows.Forms.ListBox listBox7;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.ListBox listBox6;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }
 
