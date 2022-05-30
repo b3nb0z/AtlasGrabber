@@ -26,7 +26,7 @@ Software to enable fast and large-scale analysis of the Human Protein Atlas (HPA
 - Credits
 - License
 
-## Installation
+## Setup
 The software has been tested to run on Windows 7, 8, and 10. No installation of the executable is required. Some additional packages could be required when first launched. Windows should automatically identify these and prompt their installation.
 
 You can also download the sourcecode directly and compile it yourself. 
